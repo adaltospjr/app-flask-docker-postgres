@@ -10,8 +10,6 @@ RUN pip install flask_sqlalchemy
 
 RUN pip install psycopg2-binary
 
-#RUN apk add curl
-
 WORKDIR /app
 
 COPY app/ /app
