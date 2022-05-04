@@ -1,6 +1,8 @@
-FROM python:3.10.4-alpine3.15
+FROM python:3.7-slim
 
 RUN python -m pip install --upgrade pip
+
+RUN pip install pandas
 
 RUN pip install flask
 
@@ -8,7 +10,7 @@ RUN pip install flask_sqlalchemy
 
 RUN pip install psycopg2-binary
 
-RUN apk add curl
+#RUN apk add curl
 
 WORKDIR /app
 

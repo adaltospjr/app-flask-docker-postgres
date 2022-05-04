@@ -1,4 +1,5 @@
 import psycopg2
+import pandas as pd
 
 
 def connect():
@@ -22,7 +23,12 @@ def consulta():
 
     cur.execute("select * from Produto")
 
-    dados = cur.fetchall()
+    consulta = cur.fetchall()
+
+    dados = pd.DataFrame(consulta, columns=['Nome',
+    'categoria',
+    'preco'])
+
     conn.close()
     cur.close()
 
@@ -52,7 +58,7 @@ def create_table():
     CREATE TABLE Produto (
         nome varchar(200), 
         categoria varchar(200), 
-        preco varchar(20)
+        preco numeric(18,2)
     );
     """
 

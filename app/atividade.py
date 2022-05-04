@@ -20,13 +20,13 @@ def gravar():
 
     dados = conexao.consulta()
 
-    return str(dados)
+    return 'Os dados digitados foram salvos'
 
 
 @app.route("/consultar")
 def consultar():
     dados = conexao.consulta()
-    return str(dados)
+    return dados.to_html()
 
 
 app.run(host="0.0.0.0", debug=True)
