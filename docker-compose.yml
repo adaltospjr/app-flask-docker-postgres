@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  web:
+    build: .
+    links:
+      - db
+    volumes:
+      - .:/data
+    ports:
+      - "5000:5000"
+
+  db:
+    image: postgres:9.3
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - "5431:5432"
